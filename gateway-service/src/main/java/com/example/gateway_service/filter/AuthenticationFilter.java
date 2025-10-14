@@ -69,7 +69,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
                     logger.info("Successfully validated token. User details received for endpoint: {}", path);
 
-                    
+
                     ServerHttpRequest newRequest = request.mutate()
                             .header("X-Authenticated-Role", authDetails.getRole())
                             .header("X-Authenticated-Id", String.valueOf(authDetails.getId()))

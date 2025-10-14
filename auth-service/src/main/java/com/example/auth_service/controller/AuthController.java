@@ -4,6 +4,8 @@ import com.example.auth_service.dto.Login;
 import com.example.auth_service.dto.UserAuthDetails;
 import com.example.auth_service.entity.AppUser;
 import com.example.auth_service.service.AuthService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,6 +19,8 @@ public class AuthController {
     @Autowired
     private AuthService service;
 
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -28,6 +32,7 @@ public class AuthController {
     @PostMapping("/login")
     public String getToken(@RequestBody Login authRequest) {
         System.out.println(authRequest);
+      logger.info("username {}",authRequest.getUsername());
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         if (authenticate.isAuthenticated()) {
             return service.generateToken(authenticate);

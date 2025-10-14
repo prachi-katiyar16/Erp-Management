@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 public class StudentEntity {
 
     @Id
-    private Long userId;
     private String studentId;
     private String fullName;
     private String branch;

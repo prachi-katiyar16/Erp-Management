@@ -19,8 +19,6 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
-   @Autowired
-   private RestTemplate restTemplate;
 
 
     public List<CourseEntity> getAllCourses(){

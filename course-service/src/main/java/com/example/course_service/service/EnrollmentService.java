@@ -24,8 +24,7 @@ public class EnrollmentService {
     @Autowired
     private CourseRepository courseRepository;
 
-    @Autowired
-    private RestTemplate restTemplate;
+
 
 
     public EnrollmentEntity enrollStudent( Long courseId, String studentId){

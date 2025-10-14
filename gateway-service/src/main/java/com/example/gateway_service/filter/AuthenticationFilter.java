@@ -69,7 +69,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
                     logger.info("Successfully validated token. User details received for endpoint: {}", path);
 
-                    // Create a new request object with the custom headers
+                    
                     ServerHttpRequest newRequest = request.mutate()
                             .header("X-Authenticated-Role", authDetails.getRole())
                             .header("X-Authenticated-Id", String.valueOf(authDetails.getId()))
@@ -77,7 +77,6 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
                     logger.info("Header 'X-Authenticated-Role' added to request with value '{}' for endpoint: {}", authDetails.getRole(), path);
 
-                    // THIS IS THE CRITICAL FIX: Pass the mutated request down the chain
                     return chain.filter(exchange.mutate().request(newRequest).build());
 
                 } catch (HttpClientErrorException e) {
@@ -90,7 +89,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                     return response.setComplete();
                 }
             }
-            // Continue the filter chain for non-secured (public) endpoints.
+
             logger.info("Public endpoint hit. Bypassing authentication for: {}", path);
             return chain.filter(exchange);
         };

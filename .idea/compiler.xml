@@ -10,6 +10,7 @@
         <module name="course-service" />
         <module name="auth-service" />
         <module name="user-service" />
+        <module name="common-dto" />
         <module name="gateway-service" />
       </profile>
     </annotationProcessing>
@@ -17,6 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-service" options="-parameters" />
+      <module name="common-dto" options="-parameters" />
       <module name="course-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="user-service" options="-parameters" />

@@ -1,7 +1,7 @@
 package com.example.auth_service.controller;
 
-import com.example.auth_service.dto.Login;
-import com.example.auth_service.dto.UserAuthDetails;
+import com.example.dto.Login;
+import com.example.dto.UserAuthDetails;
 import com.example.auth_service.entity.AppUser;
 import com.example.auth_service.service.AuthService;
 import org.slf4j.Logger;

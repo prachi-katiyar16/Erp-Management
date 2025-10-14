@@ -1,6 +1,6 @@
 package com.example.auth_service.security;
 
-import com.example.auth_service.dto.UserAuthDetails;
+import com.example.dto.UserAuthDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

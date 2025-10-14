@@ -1,7 +1,7 @@
 package com.example.gateway_service.filter;
 
 
-import com.example.gateway_service.dto.UserAuthDetails;
+import com.example.dto.UserAuthDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

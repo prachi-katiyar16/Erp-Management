@@ -2,15 +2,11 @@ package com.example.course_service.service;
 
 import com.example.course_service.Entity.CourseEntity;
 import com.example.course_service.Entity.EnrollmentEntity;
-import com.example.course_service.dto.UserDto;
 import com.example.course_service.exception.ResourceNotFoundException;
 import com.example.course_service.repository.CourseRepository;
 import com.example.course_service.repository.EnrollmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.util.List;

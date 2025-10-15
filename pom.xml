@@ -51,6 +51,6 @@
         <module>gateway-service</module>
         <module>user-service</module>
         <module>course-service</module>
-        <module>common-dto</module>
+        <module>common-library</module>
     </modules>
 </project>

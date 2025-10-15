@@ -1,14 +1,13 @@
 package com.example.user_service.service;
 
 import com.example.user_service.entity.StudentEntity;
-import com.example.user_service.exception.StudentNotFoundException;
+import com.example.exception.StudentNotFoundException;
 import com.example.user_service.repository.StudentProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProfileService {
@@ -21,7 +20,7 @@ public class ProfileService {
     }
 
 
-    public StudentEntity updateStudent(Long id, StudentEntity updated) {
+    public StudentEntity updateStudent(String id, StudentEntity updated) {
         return repository.findById(id)
                 .map(entity -> {
                     entity.setFullName(updated.getFullName());
@@ -33,7 +32,7 @@ public class ProfileService {
     }
 
 
-    public void deleteStudent(Long id) {
+    public void deleteStudent(String id) {
         repository.deleteById(id);
     }
 
@@ -42,7 +41,7 @@ public class ProfileService {
         return repository.findAll();
     }
 
-    public StudentEntity getStudentById(Long id) {
+    public StudentEntity getStudentById(String id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Student not found with ID: " + id));
     }

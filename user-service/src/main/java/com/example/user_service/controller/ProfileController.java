@@ -25,7 +25,7 @@ public class ProfileController {
 
     @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
     @GetMapping("/{id}")
-    public ResponseEntity<StudentEntity> getStudentById(@PathVariable Long id) {
+    public ResponseEntity<StudentEntity> getStudentById(@PathVariable String id) {
         StudentEntity student = service.getStudentById(id);
         return ResponseEntity.ok(student);
     }
@@ -39,13 +39,13 @@ public class ProfileController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/{id}")
-    public ResponseEntity<StudentEntity> updateStudent(@PathVariable Long id, @RequestBody StudentEntity entity) {
+    public ResponseEntity<StudentEntity> updateStudent(@PathVariable String id, @RequestBody StudentEntity entity) {
         return ResponseEntity.ok(service.updateStudent(id, entity));
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteDetail(@PathVariable Long id) {
+    public ResponseEntity<String> deleteDetail(@PathVariable String id) {
         service.deleteStudent(id);
         return ResponseEntity.ok("Detail deleted successfully");
     }

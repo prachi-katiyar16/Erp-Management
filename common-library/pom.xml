@@ -8,7 +8,7 @@
 
     </parent>
 
-    <artifactId>common-dto</artifactId>
+    <artifactId>common-library</artifactId>
     <packaging>jar</packaging>
 
     <properties>

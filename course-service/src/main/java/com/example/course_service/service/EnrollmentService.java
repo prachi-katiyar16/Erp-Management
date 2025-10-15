@@ -2,7 +2,7 @@ package com.example.course_service.service;
 
 import com.example.course_service.Entity.CourseEntity;
 import com.example.course_service.Entity.EnrollmentEntity;
-import com.example.course_service.exception.ResourceNotFoundException;
+import com.example.exception.ResourceNotFoundException;
 import com.example.course_service.repository.CourseRepository;
 import com.example.course_service.repository.EnrollmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

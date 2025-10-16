@@ -1,5 +1,6 @@
 package com.example.user_service.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@Table(name="Student_Profiles")
+@Table(name="Student_Entity")
 public class StudentEntity {
 
     @Id
@@ -18,4 +19,8 @@ public class StudentEntity {
     private String fullName;
     private String branch;
     private String enrollmentStatus;
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private StudentProfile profile;
 }

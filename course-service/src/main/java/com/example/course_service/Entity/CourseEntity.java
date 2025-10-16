@@ -1,9 +1,13 @@
 package com.example.course_service.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -18,6 +22,11 @@ public class CourseEntity {
     private Long courseId;
 
     private String courseName;
+    private String courseCode;
     private String description;
-    private String facultyId;
+
+    @OneToMany(mappedBy = "course",cascade= CascadeType.ALL,orphanRemoval = true)
+    @JsonManagedReference
+    private List<EnrollmentEntity> enrollments=new ArrayList<>();
+
 }

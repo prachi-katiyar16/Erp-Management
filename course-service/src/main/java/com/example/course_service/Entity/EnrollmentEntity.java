@@ -1,5 +1,6 @@
 package com.example.course_service.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +16,11 @@ public class EnrollmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String studentId;
-    private Long courseId;
     private String enrollmentDate;
+
+    @ManyToOne
+    @JoinColumn(name="course_Id")
+    @JsonBackReference
+    private CourseEntity course;
 }

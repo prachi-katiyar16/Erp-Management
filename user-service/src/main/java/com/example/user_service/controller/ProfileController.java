@@ -2,7 +2,8 @@ package com.example.user_service.controller;
 
 
 import com.example.user_service.entity.StudentEntity;
-import com.example.user_service.service.ProfileService;
+import com.example.user_service.entity.StudentProfile;
+import com.example.user_service.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,11 +16,12 @@ import java.util.List;
 public class ProfileController {
 
     @Autowired
-    private ProfileService service;
+    private StudentService service;
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public ResponseEntity<List<StudentEntity>> getAllStudent(){
+
         return ResponseEntity.ok(service.getAllStudents());
     }
 
@@ -34,13 +36,14 @@ public class ProfileController {
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
     public ResponseEntity<StudentEntity> createStudent(@RequestBody StudentEntity entity){
-        return ResponseEntity.ok(service.createStudent(entity));
+        StudentProfile profile=entity.getProfile();
+        return ResponseEntity.ok(service.createStudent(entity,profile));
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/{id}")
-    public ResponseEntity<StudentEntity> updateStudent(@PathVariable String id, @RequestBody StudentEntity entity) {
-        return ResponseEntity.ok(service.updateStudent(id, entity));
+    public ResponseEntity<StudentEntity> updateStudent(@PathVariable String id, @RequestBody StudentEntity entity,@RequestBody StudentProfile profile) {
+        return ResponseEntity.ok(service.updateStudent(id, entity, profile));
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")

@@ -29,4 +29,10 @@ public class CourseEntity {
     @JsonManagedReference
     private List<EnrollmentEntity> enrollments=new ArrayList<>();
 
+    public CourseEntity(Long courseId, String courseName, String courseCode, String description) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.description = description;
+    }
 }
